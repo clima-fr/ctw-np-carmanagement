@@ -38,7 +38,7 @@ quarkus:
       origins: http://localhost:4200
       access-control-allow-credentials: true
       headers: accept, authorization, content-type, x-requested-with
-      methods: GET, POST, PUT, OPTIONS
+      methods: GET, POST, PUT, OPTIONS, DELETE
 
 "%prod":
   quarkus:
@@ -59,4 +59,4 @@ quarkus:
         origins: http://localhost:4200
         access-control-allow-credentials: true
         headers: accept, authorization, content-type, x-requested-with
-        methods: GET, POST, PUT, OPTIONS
+        methods: GET, POST, PUT, OPTIONS, DELETE
