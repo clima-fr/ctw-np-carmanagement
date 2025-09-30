@@ -22,9 +22,24 @@ public class CarEntity extends PanacheEntityBase {
     @Column(name = "MODEL", nullable = false)
     public String model;
 
+    @Column(name = "SEATS", nullable = true)
+    public Integer seats;
+
+    @Column(name = "LICENSE_PLATE", nullable = true)
+    public String licensePlate;
+
     @Enumerated(EnumType.STRING)
     @Column(name = "ENGINE_TYPE", nullable = false)
     public EngineType engineType;
+
+    @Column(name = "AUTONOMY", nullable = true)
+    public Integer autonomy;
+
+    @Column(name = "COLOR", nullable = true)
+    public String color;
+
+    @Column(name = "IMAGE", nullable = true)
+    public String image;
 
     @Column(name = "CREATED_AT", updatable = false, nullable = false)
     public LocalDateTime createdAt;
@@ -34,7 +49,7 @@ public class CarEntity extends PanacheEntityBase {
 
     public static Car toCar(CarEntity carEntity) {
         if (Objects.nonNull(carEntity)) {
-            return new Car(carEntity.id, carEntity.brand, carEntity.model, carEntity.engineType);
+            return new Car(carEntity.id, carEntity.brand, carEntity.model, carEntity.engineType, carEntity.seats, carEntity.licensePlate, carEntity.autonomy, carEntity.color, carEntity.image);
         }
         return null;
     }

@@ -20,4 +20,11 @@ public class CarRepository implements PanacheRepository<CarEntity> {
                 .map(CarEntity::toCar)
                 .collect(Collectors.toCollection(ArrayList::new));
     }
+    public Car fetchCarById(String id) {
+        CarEntity entity = CarEntity.findById(UUID.fromString(id));
+        if (entity == null) {
+            return null;
+        }
+        return CarEntity.toCar(entity);
+    }
 }

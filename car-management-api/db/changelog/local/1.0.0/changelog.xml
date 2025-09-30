@@ -8,5 +8,7 @@
     <include file="../../master/1.0.0/sql/01-grant-user-privileges.sql" relativeToChangelogFile="true"/>
     <include file="../../master/1.0.0/sql/02-create-tables.sql" relativeToChangelogFile="true"/>
     <include file="../../master/1.0.0/sql/03-populate-car-table.sql" relativeToChangelogFile="true"/>
+    <include file="ddl/01-add-car-details.sql" relativeToChangelogFile="true"/>
+
 
 </databaseChangeLog>
