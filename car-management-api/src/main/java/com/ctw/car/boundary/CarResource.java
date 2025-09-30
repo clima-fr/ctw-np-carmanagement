@@ -10,12 +10,13 @@ import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 
 import java.util.List;
+import java.util.UUID;
 
 @Path(Routes.CAR)
 @ApplicationScoped
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
-public class CarResource {
+public class CarResource { 
 
     private final CarService carService;
 
@@ -30,5 +31,15 @@ public class CarResource {
     ) {
         List<Car> cars = this.carService.getCars();
         return Response.status(200).entity(cars).build();
+    }
+
+    @GET
+    @Path("/{id}")
+    public Response getCarById(@PathParam("id") String id) {
+    Car car = this.carService.getCarById(id);
+    if (car == null) {
+        return Response.status(Response.Status.NOT_FOUND).build();
+    }
+    return Response.ok(car).build();
     }
 }

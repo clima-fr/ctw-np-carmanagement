@@ -35,6 +35,15 @@ export class CarService {
     )
   }
 
+  getById(id: string): Observable<Car> {
+  return this.httpClient.get<Car>(`${this.apiURL}/car/${id}`)
+    
+    .pipe(
+      catchError(this.errorHandler)
+    )
+}
+
+
   /** 
    * Write code on Method
    *

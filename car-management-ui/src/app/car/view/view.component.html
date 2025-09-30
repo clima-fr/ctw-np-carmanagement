@@ -1,1 +1,38 @@
-<p>view works!</p>
+<div class="container">
+  <h1>Car Details</h1>
+
+  <table class="table table-striped" *ngIf="car">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Brand</th>
+        <th>Model</th>
+        <th>Engine Type</th>
+        <th>Seats</th>
+        <th>License Plate</th>
+        <th>Autonomy</th>
+        <th>Color</th>
+        <th>Image</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{ car.id }}</td>
+        <td>{{ car.brand }}</td>
+        <td>{{ car.model }}</td>
+        <td>{{ car.engineType }}</td>
+        <td>{{ car.seats }}</td>
+        <td>{{ car.licensePlate }}</td>
+        <td>{{ car.autonomy }}</td>
+        <td>{{ car.color }}</td>
+        <td>
+          <img *ngIf="car.image" [src]="car.image" alt="Car image" width="100">
+          <span *ngIf="!car.image">No image</span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <a href="#" routerLink="/" class="btn btn-secondary">Back</a>
+</div>
+
