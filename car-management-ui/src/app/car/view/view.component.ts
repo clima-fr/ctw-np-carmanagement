@@ -8,7 +8,7 @@ import { Car } from '../../model/car';
 @Component({
   selector: 'app-view',
   standalone: true,
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule],
   templateUrl: './view.component.html',
   styleUrl: './view.component.css'
 })
