@@ -69,4 +69,14 @@ public class CarEntity extends PanacheEntityBase {
         return entity;
     }
 
+    public void updateFromCar(Car car) {
+        this.brand = car.getBrand();
+        this.model = car.getModel();
+        this.engineType = car.getEngineType();
+        this.seats = car.getSeats();
+        this.licensePlate = car.getLicensePlate();
+        this.autonomy = car.getAutonomy();
+        this.color = car.getColor();
+        this.image = car.getImage();
+    }
 }

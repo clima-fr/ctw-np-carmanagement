@@ -43,6 +43,16 @@ public class CarResource {
     return Response.ok(car).build();
     }
 
+    @PUT
+    @Path("/{id}")
+    public Response updateCar(@PathParam("id") String id, Car car) {
+        Car updatedCar = carService.updateCar(id, car);
+        if (updatedCar == null) {
+            return Response.status(Response.Status.NOT_FOUND).build();
+        }
+        return Response.ok(updatedCar).build();
+    }
+
     @POST
     public Response createCar(Car car) {
     Car createdCar = this.carService.createCar(car);
