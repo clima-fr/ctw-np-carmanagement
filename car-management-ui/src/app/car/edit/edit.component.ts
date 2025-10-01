@@ -22,7 +22,7 @@ export class EditComponent {
   ) {}
 
    ngOnInit(): void {
-    const id = this.route.snapshot.paramMap.get('id');
+    const id = this.route.snapshot.paramMap.get('carId');
     if (id) {
       this.carService.getById(id).subscribe((data: Car) => {
         this.car = data;
@@ -34,7 +34,6 @@ export class EditComponent {
     this.carService.update(this.car).subscribe({
       next: () => {
         this.message = 'Car updated successfully!';
-        this.car = {} as Car;
       },
       error: (err: any) => {
         this.message = 'Error updating car: ' + err;
