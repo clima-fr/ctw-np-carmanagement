@@ -25,8 +25,7 @@ export class CreateComponent {
     this.carService.create(this.car).subscribe({
       next: () => {
         this.message = 'Car added successfully!';
-       
-        setTimeout(() => this.router.navigate(['/car/index']), 1000);
+        this.car = {} as Car;
       },
       error: (err: any) => {
         this.message = 'Error adding car: ' + err;
