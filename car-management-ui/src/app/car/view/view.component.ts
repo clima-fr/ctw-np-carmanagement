@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 import { CarService } from '../../service/car.service';
 import { Car } from '../../model/car';
@@ -8,7 +9,7 @@ import { Car } from '../../model/car';
 @Component({
   selector: 'app-view',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule],
   templateUrl: './view.component.html',
   styleUrl: './view.component.css'
 })

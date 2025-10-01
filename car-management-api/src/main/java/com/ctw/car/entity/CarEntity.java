@@ -53,4 +53,20 @@ public class CarEntity extends PanacheEntityBase {
         }
         return null;
     }
+
+    public static CarEntity fromCar(Car car) {
+        CarEntity entity = new CarEntity();
+        entity.brand = car.getBrand();
+        entity.model = car.getModel();
+        entity.engineType = car.getEngineType();
+        entity.seats = car.getSeats();
+        entity.licensePlate = car.getLicensePlate();
+        entity.autonomy = car.getAutonomy();
+        entity.color = car.getColor();
+        entity.image = car.getImage();
+        entity.createdAt = LocalDateTime.now();
+        entity.createdBy = "system_user";
+        return entity;
+    }
+
 }
