@@ -53,6 +53,15 @@ export class CarService {
     );
   }
 
+  update(car: Car): Observable<Car> {
+    return this.httpClient.put<Car>(`${this.apiURL}/car/${car.id}`, JSON.stringify(car), this.httpOptions)
+  
+    .pipe(
+     catchError(this.errorHandler)
+    );
+}
+
+
 
 
   /** 

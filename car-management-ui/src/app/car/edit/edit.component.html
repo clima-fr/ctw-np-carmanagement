@@ -1,1 +1,67 @@
-<p>edit works!</p>
+<p><div class="container">
+  <h1>Edit Car</h1>
+
+  <a href="#" routerLink="/car/index" class="btn btn-secondary">Back to List</a>
+
+  <form (ngSubmit)="updateCar()" #carForm="ngForm" class="mt-3">
+    <div class="mb-3">
+      <label for="brand" class="form-label">Brand<span style="color:red">*</span></label>
+      <input type="text" id="brand" name="brand" [(ngModel)]="car.brand" class="form-control" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="model" class="form-label">Model<span style="color:red">*</span></label>
+      <input type="text" id="model" name="model" [(ngModel)]="car.model" class="form-control" required>
+    </div>
+
+    <div class="mb-3">
+    <label class="form-label">Engine Type<span style="color:red">*</span></label>
+    <div class="form-check">
+        <input class="form-check-input" type="radio" id="bev" name="engineType" value="BEV" [(ngModel)]="car.engineType" required>
+        <label class="form-check-label" for="bev">BEV</label>
+    </div>
+    <div class="form-check">
+        <input class="form-check-input" type="radio" id="phev" name="engineType" value="PHEV" [(ngModel)]="car.engineType">
+        <label class="form-check-label" for="phev">PHEV</label>
+    </div>
+    <div class="form-check">
+        <input class="form-check-input" type="radio" id="gasoline" name="engineType" value="GASOLINE" [(ngModel)]="car.engineType">
+        <label class="form-check-label" for="gasoline">Gasoline</label>
+    </div>
+    <div class="form-check">
+        <input class="form-check-input" type="radio" id="diesel" name="engineType" value="DIESEL" [(ngModel)]="car.engineType">
+        <label class="form-check-label" for="diesel">Diesel</label>
+    </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="seats" class="form-label">Seats</label>
+      <input type="number" id="seats" name="seats" [(ngModel)]="car.seats" class="form-control">
+    </div>
+
+    <div class="mb-3">
+      <label for="licensePlate" class="form-label">License Plate</label>
+      <input type="text" id="licensePlate" name="licensePlate" [(ngModel)]="car.licensePlate" class="form-control">
+    </div>
+
+
+    <div class="mb-3">
+      <label for="autonomy" class="form-label">Autonomy</label>
+      <input type="number" id="autonomy" name="autonomy" [(ngModel)]="car.autonomy" class="form-control">
+    </div>
+
+    <div class="mb-3">
+      <label for="color" class="form-label">Color</label>
+      <input type="text" id="color" name="color" [(ngModel)]="car.color" class="form-control">
+    </div>
+
+    <div class="mb-3">
+      <label for="image" class="form-label">Image</label>
+      <input type="url" id="image" name="image" [(ngModel)]="car.image" class="form-control">
+    </div>
+
+  <button type="submit" class="btn btn-success" [disabled]="!carForm.form.valid">Save</button>    
+  <p class="mt-3"><span style="color:red">*</span> Campos obrigatórios</p>
+  </form>
+</div>
+
