@@ -33,5 +33,15 @@ public class CarRepository implements PanacheRepository<CarEntity> {
         persist(entity);
         return CarEntity.toCar(entity);
     }
+    @Transactional
+    public Car updateCar(String id, Car car) {
+        CarEntity entity = CarEntity.findById(UUID.fromString(id));
+        if (entity == null) {
+            return null; 
+        }
+        entity.updateFromCar(car);
+        return CarEntity.toCar(entity);
+    }
+
 
 }
