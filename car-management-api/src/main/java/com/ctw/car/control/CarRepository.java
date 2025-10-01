@@ -27,4 +27,11 @@ public class CarRepository implements PanacheRepository<CarEntity> {
         }
         return CarEntity.toCar(entity);
     }
+    @Transactional
+    public Car saveCar(Car car) {
+        CarEntity entity = CarEntity.fromCar(car);
+        persist(entity);
+        return CarEntity.toCar(entity);
+    }
+
 }

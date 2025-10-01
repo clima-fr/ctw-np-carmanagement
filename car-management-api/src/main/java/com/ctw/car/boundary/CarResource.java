@@ -42,4 +42,11 @@ public class CarResource {
     }
     return Response.ok(car).build();
     }
+
+    @POST
+    public Response createCar(Car car) {
+    Car createdCar = this.carService.createCar(car);
+    return Response.status(Response.Status.CREATED).entity(createdCar).build();
+    }
+
 }

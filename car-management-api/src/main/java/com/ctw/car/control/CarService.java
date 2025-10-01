@@ -23,4 +23,9 @@ public class CarService {
     public Car getCarById(String id) {
         return carRepository.fetchCarById(id);
     }
+
+    public Car createCar(Car car) {
+        return carRepository.saveCar(car);
+    }
+
 }
