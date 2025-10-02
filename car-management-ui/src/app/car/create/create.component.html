@@ -60,7 +60,7 @@
 
     <div class="mb-3">
       <label for="image" class="form-label">Image</label>
-      <input type="url" id="image" [(ngModel)]="car.image" name="image" class="form-control">
+      <input type="file" id="image" (change)="onFileSelected($event)" class="form-control">
     </div>
 
 

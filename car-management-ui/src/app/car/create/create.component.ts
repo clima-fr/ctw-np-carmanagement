@@ -21,6 +21,17 @@ export class CreateComponent {
     private router: Router
   ) {}
 
+  onFileSelected(event: any): void {
+    const file: File = event.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = () => {
+        this.car.image = reader.result as string; 
+      };
+      reader.readAsDataURL(file); 
+    }
+  }
+
   createCar(): void {
     this.carService.create(this.car).subscribe({
       next: () => {

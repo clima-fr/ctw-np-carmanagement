@@ -3,4 +3,4 @@ ADD COLUMN seats INT,
 ADD COLUMN license_plate VARCHAR(20),
 ADD COLUMN autonomy INT,
 ADD COLUMN color VARCHAR(50),
-ADD COLUMN image VARCHAR(255); 
+ADD COLUMN image TEXT; 
