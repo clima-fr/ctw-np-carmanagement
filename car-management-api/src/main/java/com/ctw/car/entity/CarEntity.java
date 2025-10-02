@@ -38,7 +38,7 @@ public class CarEntity extends PanacheEntityBase {
     @Column(name = "COLOR", nullable = true)
     public String color;
 
-    @Column(name = "IMAGE", nullable = true)
+    @Column(name = "IMAGE", columnDefinition = "TEXT", nullable = true)
     public String image;
 
     @Column(name = "CREATED_AT", updatable = false, nullable = false)
