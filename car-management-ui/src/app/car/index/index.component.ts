@@ -14,7 +14,8 @@ import { Car } from '../../model/car';
 })
 export class IndexComponent {
 
-  cars: Car[] = []
+  cars: Car[] = [];
+  message: string = '';
 
   constructor(public carService: CarService) { }
       
@@ -28,6 +29,15 @@ export class IndexComponent {
       this.cars = data;
     })  
   }
-
-  
+  deleteCar(id: string): void {
+    this.carService.delete(id).subscribe({
+      next: () => {
+        this.message = 'Car removed successfully!';
+        this.carService.getAll();
+      },
+      error: (err) => {
+        this.message = 'Error removing car: ' + err;
+      }
+   });
+  }
 }

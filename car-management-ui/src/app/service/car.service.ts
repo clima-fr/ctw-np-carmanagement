@@ -59,11 +59,15 @@ export class CarService {
     .pipe(
      catchError(this.errorHandler)
     );
-}
+  }
 
-
-
-
+  delete(id: string): Observable<any> {
+    return this.httpClient.delete(`${this.apiURL}/car/${id}`, this.httpOptions)
+   
+    .pipe(
+      catchError(this.errorHandler)
+    );
+  }
   /** 
    * Write code on Method
    *
