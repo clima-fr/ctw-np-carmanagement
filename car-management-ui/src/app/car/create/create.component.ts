@@ -21,8 +21,7 @@ export class CreateComponent {
     private router: Router
   ) {}
 
-<<<<<<< Updated upstream
-=======
+
   onFileSelected(event: any): void {
     const file: File = event.target.files[0];
     if (!file) {
@@ -40,7 +39,6 @@ export class CreateComponent {
     reader.readAsDataURL(file);
   }
 
->>>>>>> Stashed changes
   createCar(): void {
     this.carService.create(this.car).subscribe({
       next: () => {

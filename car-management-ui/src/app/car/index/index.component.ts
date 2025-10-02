@@ -14,7 +14,8 @@ import { Car } from '../../model/car';
 })
 export class IndexComponent {
 
-  cars: Car[] = []
+  cars: Car[] = [];
+  message: string = '';
 
   constructor(public carService: CarService) { }
       
@@ -24,10 +25,24 @@ export class IndexComponent {
    * @return response()
    */
   ngOnInit(): void {
+    this.loadCars();
+  }
+
+  loadCars(): void {
     this.carService.getAll().subscribe((data: Car[])=>{
       this.cars = data;
     })  
   }
 
-  
+  deleteCar(id: string): void {
+    this.carService.delete(id).subscribe({
+      next: () => {
+        this.message = 'Car removed successfully!';
+        this.loadCars();
+      },
+      error: (err: any) => {
+        this.message = 'Error removing car: ' + err;
+      }
+   });
+  }
 }

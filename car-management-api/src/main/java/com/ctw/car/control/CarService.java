@@ -31,4 +31,8 @@ public class CarService {
     public Car updateCar(String id, Car car) {
         return carRepository.updateCar(id, car);
     }
+
+    public boolean deleteCar(String id) {
+        return carRepository.deleteCar(id);
+    }
 }
