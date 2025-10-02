@@ -25,17 +25,22 @@ export class IndexComponent {
    * @return response()
    */
   ngOnInit(): void {
+    this.loadCars();
+  }
+
+  loadCars(): void {
     this.carService.getAll().subscribe((data: Car[])=>{
       this.cars = data;
     })  
   }
+
   deleteCar(id: string): void {
     this.carService.delete(id).subscribe({
       next: () => {
         this.message = 'Car removed successfully!';
-        this.carService.getAll();
+        this.loadCars();
       },
-      error: (err) => {
+      error: (err: any) => {
         this.message = 'Error removing car: ' + err;
       }
    });
