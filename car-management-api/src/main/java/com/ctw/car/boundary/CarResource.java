@@ -53,6 +53,19 @@ public class CarResource {
         return Response.ok(updatedCar).build();
     }
 
+    @DELETE
+    @Path("/{id}")
+    public Response deleteCar(@PathParam("id") String id) {
+        boolean deleted = carService.deleteCar(id);
+
+        if (!deleted) {
+            return Response.status(Response.Status.NOT_FOUND).build();
+        }
+
+        return Response.noContent().build(); 
+    }
+
+
     @POST
     public Response createCar(Car car) {
     Car createdCar = this.carService.createCar(car);
