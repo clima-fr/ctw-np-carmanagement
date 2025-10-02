@@ -60,9 +60,14 @@
     </div>
 
     <div class="mb-3">
-      <label for="image" class="form-label">Image</label>
-      <input type="url" id="image" name="image" [(ngModel)]="car.image" class="form-control">
+        <label class="form-label">Current Image</label>
+        <div *ngIf="car.image">
+            <img [src]="car.image" alt="Car image" style="max-width: 200px; display:block; margin-bottom:10px;">
+            <button type="button" class="btn btn-warning btn-sm" (click)="removeImage()">Remove Image</button>
+        </div>
+        <input type="file" (change)="onFileSelected($event)" accept="image/*" class="form-control mt-2">
     </div>
+
 
   <button type="submit" class="btn btn-success" [disabled]="!carForm.form.valid">Save</button>    
   <p class="mt-3"><span style="color:red">*</span> Campos obrigatórios</p>

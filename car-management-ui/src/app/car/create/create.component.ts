@@ -21,15 +21,22 @@ export class CreateComponent {
     private router: Router
   ) {}
 
+
   onFileSelected(event: any): void {
     const file: File = event.target.files[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onload = () => {
-        this.car.image = reader.result as string; 
-      };
-      reader.readAsDataURL(file); 
+    if (!file) {
+      return; 
     }
+    if (file.size > 2 * 1024 * 1024) { 
+      alert("File too large. Please upload an image smaller than 2MB.");
+      event.target.value = '';
+      return;
+    }
+    const reader = new FileReader();
+    reader.onload = () => {
+      this.car.image = reader.result as string;
+    };
+    reader.readAsDataURL(file);
   }
 
   createCar(): void {
