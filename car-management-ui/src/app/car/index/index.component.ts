@@ -37,11 +37,11 @@ export class IndexComponent {
   deleteCar(id: string): void {
     this.carService.delete(id).subscribe({
       next: () => {
-        this.message = 'Car removed successfully!';
+        this.message = 'Car deleted!';
         this.loadCars();
       },
       error: (err: any) => {
-        this.message = 'Error removing car: ' + err;
+        this.message = 'Error: ' + err;
       }
    });
   }
