@@ -42,11 +42,11 @@ export class CreateComponent {
   createCar(): void {
     this.carService.create(this.car).subscribe({
       next: () => {
-        this.message = 'Car added successfully!';
+        this.message = 'New car saved!';
         this.car = {} as Car;
       },
       error: (err: any) => {
-        this.message = 'Error adding car: ' + err;
+        this.message = 'Error: ' + err;
       }
     });
   }
